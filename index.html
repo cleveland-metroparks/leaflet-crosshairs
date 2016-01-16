@@ -55,24 +55,17 @@
 
 		map.locate({setView: true, maxZoom: 18});
 		    // Script for adding marker on map click
-    function onMapClick(e) {
-
-        var marker = L.marker(e.latlng, {
-                 draggable:true,
-                 title:"Resource location",
-                 alt:"Resource Location",
-                 riseOnHover:true
-                }).addTo(map)
-                  .bindPopup(e.latlng.toString()).openPopup();
-
-        // #12 : Update marker popup content on changing it's position
-        marker.on("dragend",function(ev){
-
-            var chagedPos = ev.target.getLatLng();
-            this.bindPopup(chagedPos.toString()).openPopup();
-
-        });
-    }
+function onMapClick(e) {
+    gib_uni();
+    marker = new L.marker(e.latlng, {id:uni, icon:redIcon, draggable:'true'});
+    marker.on('dragend', function(event){
+            var marker = event.target;
+            var position = marker.getLatLng();
+            alert(position);
+            marker.setLatLng([position],{id:uni,draggable:'true'}).bindPopup(position).update();
+    });
+    map.addLayer(marker);
+};
 		
 		
 	</script>
