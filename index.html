@@ -46,7 +46,7 @@
 			alert(e.message);
 		}
 
-		map.on('drag', onlocationfound);
+		map.on('drag', onlocationFound);
 		map.on('locationerror', onLocationError);
 
 		map.locate({setView: true, maxZoom: 16});
