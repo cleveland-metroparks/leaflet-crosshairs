@@ -15,13 +15,12 @@
 			margin: 0;
 		}
 		html, body, #map {
-			height: 80%;
+			height: 100%;
 		}
 	</style>
 </head>
 <body>
 	<div id="map"></div>
-	<div id="coord"</div>
 
 	<script>
 		var map = L.map('map');
@@ -34,7 +33,7 @@
 			id: 'mapbox.streets'
 		}).addTo(map);
 
-/*		function onLocationFound(e) {
+		function onLocationFound(e) {
 			var radius = e.accuracy / 2;
 
 			L.marker(e.latlng).addTo(map)
@@ -42,32 +41,15 @@
 
 			L.circle(e.latlng, radius).addTo(map);
 		}
-*/		
-		//getCenter()
-		
 
 		function onLocationError(e) {
 			alert(e.message);
 		}
 
-		//map.dragend('locationfound', onLocationFound);
-		//map.on('locationerror', onLocationError);
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
 
-		map.locate({setView: true, maxZoom: 18});
-		    // Script for adding marker on map click
-function onMapClick(e) {
-    gib_uni();
-    marker = new L.marker(e.latlng, {id:uni, icon:redIcon, draggable:'true'});
-    marker.on('dragend', function(event){
-            var marker = event.target;
-            var position = marker.getLatLng();
-            alert(position);
-            marker.setLatLng([position],{id:uni,draggable:'true'}).bindPopup(position).update();
-    });
-    map.addLayer(marker);
-};
-		
-		
+		map.locate({setView: true, maxZoom: 16});
 	</script>
 </body>
 </html>
