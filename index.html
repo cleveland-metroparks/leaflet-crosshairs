@@ -21,6 +21,7 @@
 </head>
 <body>
 	<div id="map"></div>
+	<div id="coord"</div>
 
 	<script>
 		var map = L.map('map');
@@ -41,12 +42,15 @@
 
 			L.circle(e.latlng, radius).addTo(map);
 		}
+		
+		//getCenter()
+		
 
 		function onLocationError(e) {
 			alert(e.message);
 		}
 
-		map.on('locationfound', onLocationFound);
+		map.dragend('locationfound', onLocationFound);
 		map.on('locationerror', onLocationError);
 
 		map.locate({setView: true, maxZoom: 16});
