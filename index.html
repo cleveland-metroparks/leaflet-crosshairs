@@ -69,8 +69,9 @@
         <script>
             var map = L.map('map');
 
-            L.tileLayer('http://maps.clemetparks.com/tilestache/tilestache.cgi/basemap_mobilestack/{z}/{x}/{y}.png', {
-                maxZoom: 18
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2xldmVsYW5kLW1ldHJvcGFya3MiLCJhIjoiWHRKaDhuRSJ9.FGqNSOHwiCr2dmTH2JTMAA', {
+                maxZoom: 20,
+                id: 'mapbox.streets'
             }).addTo(map);
 
             
