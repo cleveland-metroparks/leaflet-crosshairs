@@ -38,13 +38,13 @@
 
 			L.circle(e.latlng, radius).addTo(map);
 		}
-
+*/
 		function onLocationError(e) {
 			alert(e.message);
 		}
 
 		map.on('drag', onMapDrag);
-*/
+
 		map.on('locationerror', onLocationError);
 
 		map.locate({setView: true, maxZoom: 15});
