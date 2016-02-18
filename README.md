@@ -14,16 +14,16 @@ Most of the time isn't good enough, Faye. What I want is an embedded map where I
 
 ```Javascript
         <script>
-            # Initiate map
+            // Initiate map
             var map = L.map('map');
 
-            # load map
+            // load map
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.blablabla', {
                 maxZoom: 20,
                 id: 'mapbox.satellite'
             }).addTo(map);
 
-            # Now a function to populate our form with latitude and longitude values
+            // Now a function to populate our form with latitude and longitude values
             function onMapMove(e) {
                 // txtLatitude.val(map.getCenter());
                 var locale = map.getCenter();
@@ -31,18 +31,18 @@ Most of the time isn't good enough, Faye. What I want is an embedded map where I
                 $('#txtLongitude').val(locale.lng);
             }
             
-            # Boilerplate...
+            // Boilerplate...
             function onLocationError(e) {
                 alert(e.message);
             }
 
-            # When the map moves we run our function up above
+            // When the map moves we run our function up above
             map.on('move', onMapMove);
 
-            # Boilerplate
+            // Boilerplate
             map.on('locationerror', onLocationError);
             
-            # When we load the map, we should zoom to our current position using device geolocation
+            // When we load the map, we should zoom to our current position using device geolocation
             map.locate({ setView: true, maxZoom: 20 });
         </script>
 ```
