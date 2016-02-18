@@ -4,7 +4,7 @@ No no no, read _me_.
 See the hosted example here:
 http://cleveland-metroparks.github.io/leaflet-crosshairs
 
-The problem space is this: Your web development team is good with forms. They build forms like diurnal animals sleep -- daily, day in, day out, day in, day out. So, they want to build a form for a mobile web app _and_ it just happens to use HTML5 to grab the geolocation from field deployed phones, tablets, etc.. Great! Geo problem solved -- when we collect our form data, we'll get geo-data _for free_.
+The problem space is this: Your web development team is good with forms. They build forms like diurnal animals sleep -- daily: day in, day out, day in, day out. So, they want to build a form for a mobile web app _and_ it just happens to use HTML5 to grab the geolocation from field deployed phones, tablets, etc.. Great! Geo problem solved -- when we collect our form data, we'll get geo-data _for free_.
 
 Not so fast, form-building Valentine -- what's the quality of those data? How accurate is that phone GPS? Is it good _enough_. The answer probably is _yes, most of the time_.
 
