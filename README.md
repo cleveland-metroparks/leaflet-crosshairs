@@ -8,9 +8,12 @@ The problem space is this: Your web development team is good with forms. They bu
 
 Not so fast, form-building Valentine -- what's the quality of those data? How accurate is that phone GPS? Is it good _enough_. The answer probably is _yes, most of the time_.
 
-Most of the time isn't good enough, Faye. What I want is an embedded map where I can move the crosshairs to the actual location inside the form. Simple. Hence, questions like this: http://gis.stackexchange.com/questions/90225/how-to-add-a-floating-crosshairs-icon-above-leaflet-map and pages like this: https://www.mapbox.com/blog/help-search-MH370/
+But, most of the time isn't good enough, Faye. What I want is an embedded map where I can move the crosshairs to the actual location inside the form. Simple. Hence, questions like this: http://gis.stackexchange.com/questions/90225/how-to-add-a-floating-crosshairs-icon-above-leaflet-map and pages like this: https://www.mapbox.com/blog/help-search-MH370/
 
-
+So, we build a small page that has the following features:
+* A cross hairs that is stationary
+* A map that moves
+* When the map moves, our lat/lon values update in our form
 
 ```Javascript
         <script>
