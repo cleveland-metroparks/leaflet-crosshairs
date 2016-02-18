@@ -29,6 +29,7 @@
 			maxZoom: 18
 		}).addTo(map);
 
+/*
 		function onMapDrag(e) {
 			var radius = e.accuracy / 2;
 
@@ -43,6 +44,7 @@
 		}
 
 		map.on('drag', onMapDrag);
+*/
 		map.on('locationerror', onLocationError);
 
 		map.locate({setView: true, maxZoom: 15});
