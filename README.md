@@ -50,10 +50,10 @@ So, we build a small page that has the following features:
         </script>
 ```
 
-# Appearance:
+## Appearance:
 ![](https://raw.githubusercontent.com/cleveland-metroparks/leaflet-crosshairs/gh-pages/IMG_2752.PNG)
 
-# Things to fix
+## Things to fix
 
 Things needing fixing:
 * Alignment of crosshairs so they are properly centered
