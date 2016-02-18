@@ -5,6 +5,16 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+    <!-- Include the jQuery library -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+    <!-- Include the jQuery Mobile library -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+
+
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 
 	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -14,41 +24,72 @@
 			padding: 0;
 			margin: 0;
 		}
-		html, body, #map {
-			height: 90%;
-		}
+        html, body, #map {
+            height: 100%;
+            width:100%;
+        }
+
+        #metamap {
+            width: 80%;
+            height: 300px;
+        }
+
+        #crosshair {
+            position: relative;
+            z-index: 10;
+            height: 200px;
+            vertical-align: middle;
+        }
+            #crosshair img {
+                position: absolute;
+                margin: 0;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+                
+            }
 	</style>
 </head>
 <body>
-	<div id="map"></div>
-	<div id="crosshair"><img src=crosshair.png /></div>
-	
-	<script>
-		var map = L.map('map');
 
-		L.tileLayer('http://maps.clemetparks.com/tilestache/tilestache.cgi/basemap_mobilestack/{z}/{x}/{y}.png', {
-			maxZoom: 18
-		}).addTo(map);
+    <div id="metamap">
+        <div id="map">
+            <div id="crosshair"><img class="crosshair" src=crosshair.png /></div>
+        </div>
+    </div>
+    <br />
+    <hr />
+    Latitude: <input type="text" id="txtLatitude" />
+    <br /><br />
+    Longitude: <input type="text" id="txtLongitude" />
+    
 
-/*
-		function onMapDrag(e) {
-			var radius = e.accuracy / 2;
 
-			L.marker(e.latlng).addTo(map)
-				.bindPopup("You are within " + radius + " meters from this point. Helloooo!").openPopup();
+        <script>
+            var map = L.map('map');
 
-			L.circle(e.latlng, radius).addTo(map);
-		}
-*/
-		function onLocationError(e) {
-			alert(e.message);
-		}
+            L.tileLayer('http://maps.clemetparks.com/tilestache/tilestache.cgi/basemap_mobilestack/{z}/{x}/{y}.png', {
+                maxZoom: 18
+            }).addTo(map);
 
-//		map.on('drag', onMapDrag);
+            
+            function onMapMove(e) {
+                // txtLatitude.val(map.getCenter());
+                var locale = map.getCenter();
+                $('#txtLatitude').val(locale.lat);
+                $('#txtLongitude').val(locale.lng);
+            }
+            
+            function onLocationError(e) {
+                alert(e.message);
+            }
 
-		map.on('locationerror', onLocationError);
+            map.on('move', onMapMove);
 
-		map.locate({setView: true, maxZoom: 15});
-	</script>
+            map.on('locationerror', onLocationError);
+
+            map.locate({ setView: true, maxZoom: 18 });
+        </script>
 </body>
 </html>
