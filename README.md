@@ -49,4 +49,13 @@ So, we build a small page that has the following features:
             map.locate({ setView: true, maxZoom: 20 });
         </script>
 ```
+
+# Appearance:
 ![](https://raw.githubusercontent.com/cleveland-metroparks/leaflet-crosshairs/gh-pages/IMG_2752.PNG)
+
+# Things to fix
+
+Things needing fixing:
+* Alignment of crosshairs so they are properly centered
+* Better looking crosshairs
+* Rounding for those coordinate values
