@@ -49,3 +49,4 @@ So, we build a small page that has the following features:
             map.locate({ setView: true, maxZoom: 20 });
         </script>
 ```
+!()[https://raw.githubusercontent.com/cleveland-metroparks/leaflet-crosshairs/gh-pages/IMG_2752.PNG]
