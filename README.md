@@ -15,6 +15,8 @@ So, we build a small page that has the following features:
 * A map that moves
 * When the map moves, our lat/lon values update in our form
 
+Main code as follows (careful -- careless use of jquery follows):
+
 ```Javascript
         <script>
             // Initiate map
