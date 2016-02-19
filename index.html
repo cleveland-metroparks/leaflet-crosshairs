@@ -75,8 +75,10 @@
             function onMapMove(e) {
                 // txtLatitude.val(map.getCenter());
                 var locale = map.getCenter();
-                $('#txtLatitude').val(locale.lat);
-                $('#txtLongitude').val(locale.lng);
+                document.getElementById("txtLatitude").value=local.lat;
+                document.getElementById("txtLongitude").value=local.lng;
+                //$('#txtLatitude').val(locale.lat);
+                //$('#txtLongitude').val(locale.lng);
             }
             
             // Boilerplate...
