@@ -75,7 +75,8 @@
             function onMapMove(e) {
                 // txtLatitude.val(map.getCenter());
                 var locale = map.getCenter();
-                document.getElementById("txtLatitude").value=local.lat;
+                var lati = local.lat;
+                document.getElementById("txtLatitude").value=lati;
                 document.getElementById("txtLongitude").value=local.lng;
                 //$('#txtLatitude').val(locale.lat);
                 //$('#txtLongitude').val(locale.lng);
