@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leaflet mobile example</title>
+	<title>Leaflet Crosshairs</title>
 
+	<!-- Include meta tag to ensure proper rendering and touch zooming -->
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Include meta tag to ensure proper rendering and touch zooming -->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
-    <!-- Include the jQuery library -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include jQuery Mobile stylesheets -->
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-    <!-- Include the jQuery Mobile library -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+	<!-- Include the jQuery library -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include jQuery Mobile stylesheets -->
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+	<!-- Include the jQuery Mobile library -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 
-
+	<!-- Include leaflet css and js -->
 	<link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-
 	<script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 
 	<style>
-		body {
-			padding: 0;
-			margin: 0;
-		}
+	body {
+		padding: 0;
+		margin: 0;
+	}
         html, body, #map {
             height: 100%;
             width:100%;
@@ -64,8 +63,6 @@
     <br /><br />
     Longitude: <input type="text" id="txtLongitude" />
     
-
-
         <script>
             // Initiate map
             var map = L.map('map');
