@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset=utf-8 />
 	<title>Leaflet Crosshairs</title>
 
 	<!-- Include meta tag to ensure proper rendering and touch zooming -->
@@ -14,10 +15,8 @@
 	<!-- Include the jQuery Mobile library -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 
-	<!-- Include leaflet css and js -->
-	<link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-	<script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-
+  <script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
 	<style>
 	body {
 		padding: 0;
@@ -48,7 +47,6 @@
 	</style>
 </head>
 <body>
-
     <div id="metamap">
         <div id="map">
             <div id="crosshair"><img class="crosshair" src=crosshair.png /></div>
@@ -59,33 +57,36 @@
     Latitude: <input type="text" id="txtLatitude" />
     <br /><br />
     Longitude: <input type="text" id="txtLongitude" />
-    
-        <script>
-            // Initiate map
-            var map = L.map('map');
-            // load map
-            L.tileLayer('//api.mapbox.com/styles/v1/cleveland-metroparks/ciksmx4re004w9flx99488j4e/tiles/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2xldmVsYW5kLW1ldHJvcGFya3MiLCJhIjoiY2lsdWI2NndjMDE4cnZka3NpNXZwZnNiaSJ9.Pv2uRstAQcCq5EGTqK4o6A', {
-                maxZoom: 20
-            }).addTo(map);
-            // Now a function to populate our form with latitude and longitude values
-            function onMapMove(e) {
-                // txtLatitude.val(map.getCenter());
-                var locale = map.getCenter();
-                $('#txtLatitude').val(locale.lat);
-                $('#txtLongitude').val(locale.lng);
-            }
-            
-            // Boilerplate...
-            function onLocationError(e) {
-                alert(e.message);
-            }
-            // When the map moves we run our function up above
-            map.on('move', onMapMove);
-            // Boilerplate
-            map.on('locationerror', onLocationError);
-            
-            // When we load the map, we should zoom to our current position using device geolocation
-            map.locate({ setView: true, maxZoom: 20 });
-        </script>
+
+
+<script>
+  L.mapbox.accessToken = 'pk.eyJ1IjoiY2xldmVsYW5kLW1ldHJvcGFya3MiLCJhIjoiY2lsdWI2NndjMDE4cnZka3NpNXZwZnNiaSJ9.Pv2uRstAQcCq5EGTqK4o6A';
+  var map = L.mapbox.map('map')
+      .setView([38.97416, -95.23252], 15);
+  
+  // Use styleLayer to add a Mapbox style created in Mapbox Studio
+  L.mapbox.styleLayer('mapbox://styles/cleveland-metroparks/ciksmx4re004w9flx99488j4e').addTo(map);
+  
+  // Now a function to populate our form with latitude and longitude values
+  function onMapMove(e) {
+      // txtLatitude.val(map.getCenter());
+      var locale = map.getCenter();
+      $('#txtLatitude').val(locale.lat);
+      $('#txtLongitude').val(locale.lng);
+  }
+
+  // Boilerplate...
+  function onLocationError(e) {
+      alert(e.message);
+  }
+  // When the map moves we run our function up above
+  map.on('move', onMapMove);
+  // Boilerplate
+  map.on('locationerror', onLocationError);
+  
+  // When we load the map, we should zoom to our current position using device geolocation
+  map.locate({ setView: true, maxZoom: 20 });
+
+</script>
 </body>
 </html>
